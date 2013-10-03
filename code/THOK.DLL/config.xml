@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Config>
+	<HttpConnectionStr>
+		<Type name="HttpConnStr" value="http://10.82.211.240:8090/Task/" />
+	</HttpConnectionStr>
+</Config>
