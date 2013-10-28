@@ -88,6 +88,7 @@
             this.Name = "BillMasterForm";
             this.Text = "Form1";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.BillMasterForm_Load);
             this.ResumeLayout(false);
 
         }

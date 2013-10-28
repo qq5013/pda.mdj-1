@@ -16,7 +16,8 @@ namespace THOK.PDA.Util
         {
             try
             {
-                fileName = @"\config\config.xml";
+                fileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\config\\config.xml";
+                //fileName = @"\config\config.xml";
                 doc.Load(fileName);
             }
             catch (Exception ex)

@@ -27,18 +27,18 @@ namespace THOK.WES.Interface.Model
             set { productName = value; }
         }
 
-        private decimal taskJianQuantity = 0;
-        public decimal TaskJianQuantity
+        private decimal taskPieceQuantity = 0;
+        public decimal TaskPieceQuantity
         {
-            get { return taskJianQuantity; }
-            set { taskJianQuantity = value; }
+            get { return taskPieceQuantity; }
+            set { taskPieceQuantity = value; }
         }
 
-        private decimal taskTiaoQuantity = 0;
-        public decimal TaskTiaoQuantity
+        private decimal taskBarQuantity = 0;
+        public decimal TaskBarQuantity
         {
-            get { return taskTiaoQuantity; }
-            set { taskTiaoQuantity = value; }
+            get { return taskBarQuantity; }
+            set { taskBarQuantity = value; }
         }
 
         private string status = string.Empty;

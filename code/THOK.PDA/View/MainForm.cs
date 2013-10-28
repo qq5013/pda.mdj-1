@@ -14,7 +14,7 @@ using THOK.PDA.Service;
 namespace THOK.PDA.View
 {
     public partial class MainForm : Form
-    {     
+    {
         public MainForm()
         {
             InitializeComponent();
@@ -37,12 +37,18 @@ namespace THOK.PDA.View
             }
             catch (Exception)
             {
-                WaitCursor.Restore();               
+                WaitCursor.Restore();
             }
         }
         private void btnOut_Click(object sender, EventArgs e)
         {
+            string billType = "2";
+
+            WaitCursor.Set();
             
+            BillMasterForm from = new BillMasterForm(billType);
+            from.Show();
+            this.Visible = false;
         }
     }
 }

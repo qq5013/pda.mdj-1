@@ -7,7 +7,6 @@ namespace THOK.WES.Interface.Model
     public class BillDetail
     {
         private string billNo = string.Empty;
-
         public string BillNo
         {
             get { return billNo; }
@@ -15,7 +14,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string billType = string.Empty;
-
         public string BillType
         {
             get { return billType; }
@@ -48,7 +46,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private int detailID = 0;
-
         public int DetailID
         {
             get { return detailID; }
@@ -56,7 +53,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string storageName = string.Empty;
-
         public string StorageName
         {
             get { return storageName; }
@@ -64,7 +60,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string storageRfid = string.Empty;
-
         public string StorageRfid
         {
             get { return storageRfid; }
@@ -72,7 +67,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string cellRfid = string.Empty;
-
         public string CellRfid
         {
             get { return cellRfid; }
@@ -80,7 +74,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string targetStorageName = string.Empty;
-
         public string TargetStorageName
         {
             get { return targetStorageName; }
@@ -88,7 +81,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string targetStorageRfid = string.Empty;
-
         public string TargetStorageRfid
         {
             get { return targetStorageRfid; }
@@ -96,7 +88,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string productCode = string.Empty;
-
         public string ProductCode
         {
             get { return productCode; }
@@ -104,7 +95,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string productName = string.Empty;
-
         public string ProductName
         {
             get { return productName; }
@@ -112,7 +102,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private decimal pieceQuantity = 0;
-
         public decimal PieceQuantity
         {
             get { return pieceQuantity; }
@@ -120,7 +109,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private decimal barQuantity = 0;
-
         public decimal BarQuantity
         {
             get { return barQuantity; }
@@ -128,7 +116,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private decimal operatePieceQuantity = 0;
-
         public decimal OperatePieceQuantity
         {
             get { return operatePieceQuantity; }
@@ -136,7 +123,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private decimal operateBarQuantity = 0;
-
         public decimal OperateBarQuantity
         {
             get { return operateBarQuantity; }
@@ -144,16 +130,13 @@ namespace THOK.WES.Interface.Model
         }
 
         private decimal total = 0;
-
         public decimal Total
         {
             get { return total; }
             set { total = value; }
         }
 
-
         private string isRounding = string.Empty;
-
         public string IsRounding
         {
             get { return isRounding; }
@@ -161,7 +144,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private bool ableMerge = false;
-
         public bool AbleMerge
         {
             get { return ableMerge; }
@@ -169,7 +151,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string operatorCode = string.Empty;
-
         public string OperatorCode
         {
             //get { return operatorCode; }
@@ -177,7 +158,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string @operator = string.Empty;
-
         public string Operator
         {
             get { return @operator; }
@@ -185,7 +165,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private string status = string.Empty;
-
         public string Status
         {
             get { return status; }
@@ -215,7 +194,6 @@ namespace THOK.WES.Interface.Model
         }
 
         private int palletTag = 0;
-
         public int PalletTag
         {
             get { return palletTag; }

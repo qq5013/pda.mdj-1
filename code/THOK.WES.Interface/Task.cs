@@ -13,39 +13,30 @@ namespace THOK.WES.Interface
         private string taskType = string.Empty;
 
         public delegate void GetBillMasterCompletedEventHandler(bool isSuccess,string msg,BillMaster[] billMasters);
-
         public event GetBillMasterCompletedEventHandler GetBillMasterCompleted;
 
         public delegate void GetBillDetailCompletedEventHandler(bool isSuccess,string msg,BillDetail[] billDetails);
-
         public event GetBillDetailCompletedEventHandler GetBillDetailCompleted;
 
         public delegate void ApplyCompletedEventHandler(bool isSuccess,string msg);
-
         public event ApplyCompletedEventHandler ApplyCompleted;
 
         public delegate void CancelCompletedEventHandler(bool isSuccess,string msg);
-
         public event CancelCompletedEventHandler CancelCompleted;
 
         public delegate void ExecuteCompletedEventHandler(bool isSuccess,string msg);
-
         public event ExecuteCompletedEventHandler ExecuteCompleted;
 
         public delegate void GetRfidInfoCompletedEventHandler(bool isSuccess, string msg, BillDetail[] billDetails);
-
         public event GetRfidInfoCompletedEventHandler GetRfidInfoCompleted;
 
         public delegate void BcComposeEventHandler(bool isSuccess, string msg);
-
         public event BcComposeEventHandler BcComposeCompleted;
 
         public delegate void GetShelfEventHandler(bool isSuccess, string msg, ShelfInfo[] shelfInfo);
-
         public event GetShelfEventHandler GetShelf;
 
         public delegate void GetOutAbnormityTask(OutAbnormityBill[] outAbnormityBill);
-
         public event GetOutAbnormityTask GetOutAbnormity;
 
         public Task(string url)
