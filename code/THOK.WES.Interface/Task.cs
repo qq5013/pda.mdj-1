@@ -404,8 +404,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                     #endregion
-                default:
-                    break;
+                default: break;
             }
         }
     }

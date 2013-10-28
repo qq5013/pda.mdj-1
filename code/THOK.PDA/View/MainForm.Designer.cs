@@ -32,10 +32,8 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnOut = new System.Windows.Forms.Button();
-            this.btnSmall = new System.Windows.Forms.Button();
-            this.btnAbnormal = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAbnormalOut = new System.Windows.Forms.Button();
+            this.btnSmallOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnParamenter
@@ -79,48 +77,27 @@
             this.label2.Text = "仓储引导作业系统";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnOut
+            // btnAbnormalOut
             // 
-            this.btnOut.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnOut.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnOut.Location = new System.Drawing.Point(4, 44);
-            this.btnOut.Name = "btnOut";
-            this.btnOut.Size = new System.Drawing.Size(112, 83);
-            this.btnOut.TabIndex = 0;
-            this.btnOut.Text = "出库作业";
-            this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
+            this.btnAbnormalOut.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAbnormalOut.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAbnormalOut.Location = new System.Drawing.Point(4, 44);
+            this.btnAbnormalOut.Name = "btnAbnormalOut";
+            this.btnAbnormalOut.Size = new System.Drawing.Size(230, 85);
+            this.btnAbnormalOut.TabIndex = 0;
+            this.btnAbnormalOut.Text = "异型烟作业出库";
+            this.btnAbnormalOut.Click += new System.EventHandler(this.btnAbnormalOut_Click);
             // 
-            // btnSmall
+            // btnSmallOut
             // 
-            this.btnSmall.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSmall.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSmall.Location = new System.Drawing.Point(122, 44);
-            this.btnSmall.Name = "btnSmall";
-            this.btnSmall.Size = new System.Drawing.Size(112, 83);
-            this.btnSmall.TabIndex = 7;
-            this.btnSmall.Text = "小品种";
-            this.btnSmall.Click += new System.EventHandler(this.btnSmall_Click);
-            // 
-            // btnAbnormal
-            // 
-            this.btnAbnormal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAbnormal.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAbnormal.Location = new System.Drawing.Point(3, 132);
-            this.btnAbnormal.Name = "btnAbnormal";
-            this.btnAbnormal.Size = new System.Drawing.Size(112, 77);
-            this.btnAbnormal.TabIndex = 8;
-            this.btnAbnormal.Text = "异型烟";
-            this.btnAbnormal.Click += new System.EventHandler(this.btnAbnormal_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button3.Location = new System.Drawing.Point(121, 132);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 77);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "无";
+            this.btnSmallOut.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSmallOut.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSmallOut.Location = new System.Drawing.Point(4, 135);
+            this.btnSmallOut.Name = "btnSmallOut";
+            this.btnSmallOut.Size = new System.Drawing.Size(230, 85);
+            this.btnSmallOut.TabIndex = 7;
+            this.btnSmallOut.Text = "小品种作业出库";
+            this.btnSmallOut.Click += new System.EventHandler(this.btnSmallOut_Click);
             // 
             // MainForm
             // 
@@ -129,14 +106,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(243, 320);
             this.ControlBox = false;
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btnAbnormal);
-            this.Controls.Add(this.btnSmall);
+            this.Controls.Add(this.btnSmallOut);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnParamenter);
-            this.Controls.Add(this.btnOut);
+            this.Controls.Add(this.btnAbnormalOut);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -151,10 +126,8 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnOut;
-        private System.Windows.Forms.Button btnSmall;
-        private System.Windows.Forms.Button btnAbnormal;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAbnormalOut;
+        private System.Windows.Forms.Button btnSmallOut;
 
     }
 }
