@@ -44,5 +44,39 @@ namespace THOK.PDA.View
             }
             WaitCursor.Restore();
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            SystemCache.MainFrom.Visible = true;
+            this.Close();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            WaitCursor.Set();
+            try
+            {
+                BaseTaskForm baseTaskForm = new BaseTaskForm(this.billType, this.lbInfo.SelectedValue.ToString());
+                baseTaskForm.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                WaitCursor.Restore();
+                MessageBox.Show("¶ÁÈ¡Êý¾ÝÊ§°Ü!" + ex.Message);
+            }
+        }
+
+        private void BillMasterForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "Escape")
+            {
+                this.btnHome_Click(null, null);
+            }
+            if (e.KeyCode.ToString() == "Return")
+            {
+                this.btnNext_Click(null, null);
+            }
+        }
     }
 }

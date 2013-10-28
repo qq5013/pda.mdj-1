@@ -62,21 +62,18 @@ namespace THOK.PDA.Service
             return table;
         }
 
-        /// <summary>申请作业</summary>
         public void ApplyTask(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'apply','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
             string msg = util.GetDataFromServer(parameter);
             //Result r = JsonConvert.DeserializeObject<Result>(msg);
         }
-        /// <summary>取消作业</summary>
         public void CancelTask(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'cancel','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
             string msg = util.GetDataFromServer(parameter);
             //Result r = JsonConvert.DeserializeObject<Result>(msg);
         }
-        /// <summary>完成作业</summary>
         public void ExecuteTask(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'execute','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";

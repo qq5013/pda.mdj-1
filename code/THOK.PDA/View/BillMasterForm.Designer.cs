@@ -43,6 +43,7 @@
             this.btnHome.Size = new System.Drawing.Size(77, 32);
             this.btnHome.TabIndex = 4;
             this.btnHome.Text = "主菜单";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // label2
             // 
@@ -63,6 +64,7 @@
             this.btnNext.Size = new System.Drawing.Size(79, 32);
             this.btnNext.TabIndex = 5;
             this.btnNext.Text = "下一步";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // lbInfo
             // 
@@ -89,6 +91,7 @@
             this.Text = "Form1";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.BillMasterForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BillMasterForm_KeyDown);
             this.ResumeLayout(false);
 
         }
