@@ -21,6 +21,17 @@ namespace THOK.PDA.View
             SystemCache.MainFrom = this;
         }
 
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            string billType = "2";
+
+            WaitCursor.Set();
+
+            BillMasterForm bmFrom = new BillMasterForm(billType);
+            bmFrom.Show();
+            this.Visible = false;
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -39,16 +50,6 @@ namespace THOK.PDA.View
             {
                 WaitCursor.Restore();
             }
-        }
-        private void btnOut_Click(object sender, EventArgs e)
-        {
-            string billType = "2";
-
-            WaitCursor.Set();
-            
-            BillMasterForm from = new BillMasterForm(billType);
-            from.Show();
-            this.Visible = false;
         }
     }
 }

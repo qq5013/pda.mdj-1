@@ -29,13 +29,14 @@ namespace THOK.PDA.View
                 case "2": this.label2.Text = "出库主单据号"; break;
             }
             DataTable tempTable = null;
+            if (SystemCache.ConnetionType == "NetWork")
+            {
+                HttpDataService httpDataService = new HttpDataService();
+                tempTable = httpDataService.SearchBillMaster(billType);
 
-            HttpDataService httpDataService = new HttpDataService();
-            tempTable = httpDataService.SearchBillMaster(billType);
-
-            this.lbInfo.ValueMember = "BillNo";
-            this.lbInfo.DisplayMember = "BillNo";
-
+                this.lbInfo.ValueMember = "BillNo";
+                this.lbInfo.DisplayMember = "BillNo";
+            }
             this.lbInfo.DataSource = tempTable;
             if (tempTable.Rows.Count == 0)
             {
