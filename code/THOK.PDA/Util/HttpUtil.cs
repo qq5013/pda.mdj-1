@@ -11,7 +11,7 @@ namespace THOK.PDA.Util
     {
         public string GetDataFromServer(string parameter)
         {
-            string url = SystemCache.HttpConnectionStr;//"http://10.82.211.240:8090/Task/";
+            string url = SystemCache.HttpConnectionStr;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.ContentType = "application/x-www-form-urlencoded";
             request.AllowWriteStreamBuffering = true;

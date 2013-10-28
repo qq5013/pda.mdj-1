@@ -16,12 +16,12 @@ namespace THOK.PDA.Util
         {
             try
             {
-                fileName = "config.xml";//fileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase)+"\\config.xml";
+                fileName = @"\config\config.xml";
                 doc.Load(fileName);
             }
             catch (Exception ex)
             {
-                throw ex;//MessageBox.Show("找不到配置文件!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
             }
         }
         public Dictionary<string, string> GetConfig(string nodeName)

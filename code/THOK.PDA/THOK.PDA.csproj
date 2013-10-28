@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\BillService.cs" />
     <Compile Include="Service\HttpDataService.cs" />
     <Compile Include="Service\XMLBillService.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
@@ -136,7 +137,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.xml">
+    <Content Include="config\config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="image\TH.png" />
