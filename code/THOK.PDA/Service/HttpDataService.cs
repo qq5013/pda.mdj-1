@@ -26,7 +26,7 @@ namespace THOK.PDA.Service
                 for (int i = 0; i < r.BillMasters.Length; i++)
                 {
                     DataRow row = table.NewRow();
-                    row["BILLNO"] = r.BillMasters[i].BillNo;
+                    row["BillNo"] = r.BillMasters[i].BillNo;
                     table.Rows.Add(row);
                 }
                 return table;
@@ -49,12 +49,12 @@ namespace THOK.PDA.Service
                 DataRow row = table.NewRow();
 
                 row["DetailID"] = r.BillDetails[i].DetailID;
-                row["operateStorageName"] = r.BillDetails[i].StorageName;
-                row["targetStorageName"] = r.BillDetails[i].TargetStorageName;
-                row["operateName"] = r.BillDetails[i].BillTypeName;
-                row["operateProductName"] = r.BillDetails[i].ProductName;
-                row["operatePieceQuantity"] = r.BillDetails[i].PieceQuantity;
-                row["operateBarQuantity"] = r.BillDetails[i].BarQuantity;
+                row["OperateStorageName"] = r.BillDetails[i].StorageName;
+                row["TargetStorageName"] = r.BillDetails[i].TargetStorageName;
+                row["OperateName"] = r.BillDetails[i].BillTypeName;
+                row["OperateProductName"] = r.BillDetails[i].ProductName;
+                row["OperatePieceQuantity"] = r.BillDetails[i].PieceQuantity;
+                row["OperateBarQuantity"] = r.BillDetails[i].BarQuantity;
                 row["StatusName"] = r.BillDetails[i].StatusName;
 
                 table.Rows.Add(row);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace THOK.PDA.Service
 {
-    class BillService
+    public class BillService
     {
     }
 }

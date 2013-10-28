@@ -32,7 +32,6 @@ namespace THOK.PDA.Service
                 root = doc.CreateElement("Bill");
                 doc.AppendChild(root);
             }
-
             XmlElement node = doc.CreateElement("billInfo");
             node.SetAttribute("masteId", billId);
             node.SetAttribute("detailId", detailId);
@@ -105,14 +104,14 @@ namespace THOK.PDA.Service
         public void UpdateBill(string billId, string detailId, string piece, string item)
         {
             doc.Load(importFile);
-            XmlNode node = doc.SelectNodes(@"/Bill/billInfo/detailInfo[@MASTER='" + billId + "'][@DETAILID='" + detailId + "']").Item(0);
-            node.Attributes["CONFIRMSTATE"].Value = "3";
+            XmlNode node = doc.SelectNodes(@"/Bill/billInfo/detailInfo[@Master='" + billId + "'][@DetailID='" + detailId + "']").Item(0);
+            node.Attributes["ConfirmState"].Value = "3";
 
-            node.Attributes["STATENAME"].Value = "已执行";
-            node.Attributes["OPERATEPIECE"].Value = piece;
-            node.Attributes["OPERATEITEM"].Value = item;
+            node.Attributes["StateName"].Value = "已执行";
+            node.Attributes["OperatePiece"].Value = piece;
+            node.Attributes["OperateItem"].Value = item;
             doc.Save(importFile);
-            SystemCache.DetailTable.Select("MASTER='" + billId + "' AND DETAILID='" + detailId + "'")[0]["CONFIRMSTATE"] = "3";
+            SystemCache.DetailTable.Select("Master='" + billId + "' AND DetailID='" + detailId + "'")[0]["ConfirmState"] = "3";
         }
     }
 }
