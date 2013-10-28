@@ -24,9 +24,21 @@ namespace THOK.PDA.View
         private void btnOut_Click(object sender, EventArgs e)
         {
             string billType = "2";
-
+            FormShow(billType);
+        }
+        private void btnSmall_Click(object sender, EventArgs e)
+        {
+            string billType = "3";
+            FormShow(billType);
+        }
+        private void btnAbnormal_Click(object sender, EventArgs e)
+        {
+            string billType = "4";
+            FormShow(billType);
+        }
+        private void FormShow(string billType)
+        {
             WaitCursor.Set();
-
             BillMasterForm bmFrom = new BillMasterForm(billType);
             bmFrom.Show();
             this.Visible = false;

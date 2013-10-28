@@ -74,7 +74,7 @@ namespace THOK.PDA.Service
             string msg = util.GetDataFromServer(parameter);
             //Result r = JsonConvert.DeserializeObject<Result>(msg);
         }
-        public void ExecuteTask(BillDetail billDetail)
+        public void FinishTask(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'execute','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
             string msg = util.GetDataFromServer(parameter);

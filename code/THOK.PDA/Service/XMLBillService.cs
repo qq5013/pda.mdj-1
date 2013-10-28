@@ -11,8 +11,8 @@ namespace THOK.PDA.Service
     public class XMLBillService
     {
         XmlDocument doc = new XmlDocument();
-        string uploadFile = "uploadFile.xml";
-        string importFile = "exportBill.xml";
+        string uploadFile = @"config\uploadFile.xml";
+        string importFile = @"config\exportBill.xml";
 
         public XMLBillService()
         {

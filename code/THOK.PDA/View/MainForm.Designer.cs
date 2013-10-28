@@ -33,15 +33,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnOut = new System.Windows.Forms.Button();
+            this.btnSmall = new System.Windows.Forms.Button();
+            this.btnAbnormal = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnParamenter
             // 
             this.btnParamenter.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.btnParamenter.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnParamenter.Location = new System.Drawing.Point(4, 214);
+            this.btnParamenter.Location = new System.Drawing.Point(4, 226);
             this.btnParamenter.Name = "btnParamenter";
-            this.btnParamenter.Size = new System.Drawing.Size(112, 53);
+            this.btnParamenter.Size = new System.Drawing.Size(112, 41);
             this.btnParamenter.TabIndex = 4;
             this.btnParamenter.Text = "参数设置";
             this.btnParamenter.Click += new System.EventHandler(this.btnParamenter_Click);
@@ -50,9 +53,9 @@
             // 
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnExit.Location = new System.Drawing.Point(122, 214);
+            this.btnExit.Location = new System.Drawing.Point(122, 226);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(112, 53);
+            this.btnExit.Size = new System.Drawing.Size(112, 41);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "关闭";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -80,12 +83,44 @@
             // 
             this.btnOut.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnOut.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnOut.Location = new System.Drawing.Point(4, 49);
+            this.btnOut.Location = new System.Drawing.Point(4, 44);
             this.btnOut.Name = "btnOut";
-            this.btnOut.Size = new System.Drawing.Size(230, 159);
+            this.btnOut.Size = new System.Drawing.Size(112, 83);
             this.btnOut.TabIndex = 0;
             this.btnOut.Text = "出库作业";
             this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
+            // 
+            // btnSmall
+            // 
+            this.btnSmall.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSmall.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSmall.Location = new System.Drawing.Point(122, 44);
+            this.btnSmall.Name = "btnSmall";
+            this.btnSmall.Size = new System.Drawing.Size(112, 83);
+            this.btnSmall.TabIndex = 7;
+            this.btnSmall.Text = "小品种";
+            this.btnSmall.Click += new System.EventHandler(this.btnSmall_Click);
+            // 
+            // btnAbnormal
+            // 
+            this.btnAbnormal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAbnormal.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAbnormal.Location = new System.Drawing.Point(3, 132);
+            this.btnAbnormal.Name = "btnAbnormal";
+            this.btnAbnormal.Size = new System.Drawing.Size(112, 77);
+            this.btnAbnormal.TabIndex = 8;
+            this.btnAbnormal.Text = "异型烟";
+            this.btnAbnormal.Click += new System.EventHandler(this.btnAbnormal_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button3.Location = new System.Drawing.Point(121, 132);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 77);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "无";
             // 
             // MainForm
             // 
@@ -94,6 +129,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(243, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAbnormal);
+            this.Controls.Add(this.btnSmall);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
@@ -114,6 +152,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOut;
+        private System.Windows.Forms.Button btnSmall;
+        private System.Windows.Forms.Button btnAbnormal;
+        private System.Windows.Forms.Button button3;
 
     }
 }

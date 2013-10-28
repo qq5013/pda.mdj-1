@@ -72,6 +72,7 @@
             this.btnComplete.Size = new System.Drawing.Size(79, 32);
             this.btnComplete.TabIndex = 5;
             this.btnComplete.Text = "完　成";
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // label2
             // 
@@ -202,6 +203,7 @@
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 17;
             this.button1.Text = "+";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -210,6 +212,7 @@
             this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 18;
             this.button2.Text = "-";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -218,6 +221,7 @@
             this.button3.Size = new System.Drawing.Size(20, 20);
             this.button3.TabIndex = 17;
             this.button3.Text = "+";
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -226,6 +230,7 @@
             this.button4.Size = new System.Drawing.Size(20, 20);
             this.button4.TabIndex = 18;
             this.button4.Text = "-";
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // BillDetailForm
             // 
@@ -262,6 +267,7 @@
             this.Name = "BillDetailForm";
             this.Text = "Form1";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.BillDetailForm_Load);
             this.ResumeLayout(false);
 
         }
