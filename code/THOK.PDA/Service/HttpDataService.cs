@@ -15,7 +15,7 @@ namespace THOK.PDA.Service
 
         public DataTable SearchBillMaster(string billTypes)
         {
-            string parameter = @"Parameter={'Method':'getMaster','BillTypes':" + JsonConvert.SerializeObject(billTypes.Split(',')) + "}";
+            string parameter = @"Parameter={'Method':'GetMaster','BillTypes':" + JsonConvert.SerializeObject(billTypes.Split(',')) + "}";
 
             string msg = util.GetDataFromServer(parameter);
             Result r = JsonConvert.DeserializeObject<Result>(msg);
