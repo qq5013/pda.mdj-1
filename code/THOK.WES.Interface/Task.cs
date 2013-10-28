@@ -47,22 +47,22 @@ namespace THOK.WES.Interface
         //查询所有可以执行的主单；
         public void SearchBillMaster(string parameter)
         {
-            taskType = "GetBillMaster";
+            taskType = "getBillMaster";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
             parameter = JsonMapper.ToJson(parameter.Split(','));
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'GetMaster','BillTypes':" + parameter + "}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getMaster','BillTypes':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
         //查询选择的所有主单里所有未执行细单；
         public void SearchBillDetail(BillMaster[] billMasters, string productCode, string operateType,string OperateArea, string @operator)
         {
-            taskType = "GetBillDetail";
+            taskType = "getBillDetail";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
             string parameter = JsonMapper.ToJson(billMasters);
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'GetDetail','ProductCode': '" + productCode + "','OperateType':'" + operateType + "','OperateArea':'" + OperateArea + "','Operator':'" + @operator + "','BillMasters':" + parameter + "}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getDetail','ProductCode': '" + productCode + "','OperateType':'" + operateType + "','OperateArea':'" + OperateArea + "','Operator':'" + @operator + "','BillMasters':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
 
         }
@@ -70,50 +70,50 @@ namespace THOK.WES.Interface
         //请求所有选择的细单；
         public void Apply(BillDetail[] billDetails, string useTag)
         {
-            taskType = "Apply";
+            taskType = "apply";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
             string parameter = JsonMapper.ToJson(billDetails);
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'Apply','UseTag':'" + useTag + "','BillDetails':" + parameter + "}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'apply','UseTag':'" + useTag + "','BillDetails':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
         //取消所有选择的细单的请求；
         public void Cancel(BillDetail[] billDetails, string useTag)
         {
-            taskType = "Cancel";
+            taskType = "cancel";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
             string parameter = JsonMapper.ToJson(billDetails);
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'Cancel','UseTag':'" + useTag + "','BillDetails':" + parameter + "}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'cancel','UseTag':'" + useTag + "','BillDetails':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
         //执行所有选择的细单；
         public void Execute(BillDetail[] billDetails, string useTag)
         {
-            taskType = "Execute";
+            taskType = "execute";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";  
             string parameter = JsonMapper.ToJson(billDetails);
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'Execute','UseTag':'" + useTag + "','BillDetails':" + parameter + "}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'execute','UseTag':'" + useTag + "','BillDetails':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
         //根据rfid查询卷烟和数量；
         public void SearchRfidInfo(string rfid)
         {
-            taskType = "GetRfidInfo";
+            taskType = "getRfidInfo";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
             //string parameter = JsonMapper.ToJson(rfid.Split(','));
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'GetRfidInfo','RfidId':'" + rfid + "'}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getRfidInfo','RfidId':'" + rfid + "'}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
         public void BcCompose(string billNo)
         {
-            taskType = "Compose";
+            taskType = "compose";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
             client.UploadStringAsync(url, "post", @"billNo=" + billNo);
@@ -122,10 +122,10 @@ namespace THOK.WES.Interface
         //查询shelf的信息
         public void Getshelf()
         {
-            taskType = "GetShelf";
+            taskType = "getShelf";
             WebClient client = new WebClient();
             client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'GetShelf'}");
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getShelf'}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
@@ -134,7 +134,7 @@ namespace THOK.WES.Interface
             switch (taskType)
             {
                 #region 主单
-                case "GetBillMaster":
+                case "getBillMaster":
                     try
                     {
                         string result = ex.Result;
@@ -165,7 +165,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 细单
-                case "GetBillDetail":
+                case "getBillDetail":
                     try
                     {
                         string result = ex.Result;
@@ -195,7 +195,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 申请
-                case "Apply":
+                case "apply":
                     try
                     {
                         string result = ex.Result;
@@ -225,7 +225,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 取消
-                case "Cancel":
+                case "cancel":
                     try
                     {
                         string result = ex.Result;
@@ -255,7 +255,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 确认
-                case "Execute":
+                case "execute":
                     try
                     {
                         string result = ex.Result;
@@ -285,7 +285,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region RFID
-                case "GetRfidInfo":
+                case "getRfidInfo":
                     try
                     {
                         string result = ex.Result;
@@ -315,7 +315,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 货架
-                case "GetShelf":
+                case "getShelf":
                     try
                     {
                         string result = ex.Result;
@@ -345,7 +345,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 其他
-                case "Compose":
+                case "compose":
                     try
                     {
                         string result = ex.Result;
@@ -375,7 +375,7 @@ namespace THOK.WES.Interface
                     break;
                 #endregion
                 #region 异型烟出库
-                case "GetOutAbnormity":
+                case "getOutAbnormity":
                     try
                     {
                         string result = ex.Result;
