@@ -66,16 +66,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dal\BillDal.cs" />
-    <Compile Include="Dal\HttpDataDal.cs" />
-    <Compile Include="Dal\XMLBillDal.cs" />
-    <Compile Include="Dao\BillDao.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Dao\DBHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Dao\XMLBillDao.cs" />
+    <Compile Include="Service\HttpDataService.cs" />
+    <Compile Include="Service\XMLBillService.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
     <Compile Include="Util\HttpUtil.cs" />
     <Compile Include="Util\SystemCache.cs" />

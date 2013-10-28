@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using THOK.PDA.Util;
-using THOK.PDA.Dal;
+using THOK.PDA.Service;
 
 
 namespace THOK.PDA.View
@@ -42,29 +42,7 @@ namespace THOK.PDA.View
         }
         private void btnOut_Click(object sender, EventArgs e)
         {
-            string billType = "2";
-
-            try
-            {
-                WaitCursor.Set();
-                if (SystemCache.ConnetionType == "USB连接")
-                {
-                    new XMLBillDal().ReadBill();
-                    if (SystemCache.MasterTable == null)
-                    {
-                        MessageBox.Show("没有需操作的数据!!");
-                        return;
-                    }
-                }
-                BillMasterForm from = new BillMasterForm(billType);
-                from.Show();
-                this.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                WaitCursor.Restore();
-                MessageBox.Show("获取数据出错!" + ex.Message);
-            }      
+            
         }
     }
 }

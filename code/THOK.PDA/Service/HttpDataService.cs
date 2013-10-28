@@ -7,23 +7,19 @@ using THOK.WES.Interface.Model;
 using Newtonsoft.Json;
 using System.Net;
 
-namespace THOK.PDA.Dal
+namespace THOK.PDA.Service
 {
-    public class HttpDataDal
+    public class HttpDataService
     {
         private HttpUtil util = new HttpUtil();
 
-        /// <summary>
-        /// 获取主单单号
-        /// </summary>
-        /// <returns></returns>
         public DataTable SearchBillMaster(string billTypes)
         {
             string parameter = @"Parameter={'Method':'getMaster','BillTypes':" + JsonConvert.SerializeObject(billTypes.Split(',')) + "}";
-            
+
             string msg = util.GetDataFromServer(parameter);
             Result r = JsonConvert.DeserializeObject<Result>(msg);
-            
+
             DataTable table = GenBill();
             if (r.IsSuccess)
             {
@@ -40,11 +36,6 @@ namespace THOK.PDA.Dal
                 return table;
             }
         }
-
-        /// <summary>
-        /// 获取细单
-        /// </summary>
-        /// <returns></returns>
         public DataTable SearchBillDetail(BillMaster billMaster)
         {
             string parameter = @"Parameter={'Method':'getDetail','ProductCode': '" + "" + "','OperateType':'" + billMaster.BillType + "','OperateArea':'" + "1,2,3" + "','Operator':'" + Dns.GetHostName() + "','BillMasters':" + JsonConvert.SerializeObject(new BillMaster[] { billMaster }) + "}";
@@ -52,7 +43,7 @@ namespace THOK.PDA.Dal
             Result r = JsonConvert.DeserializeObject<Result>(msg);
 
             DataTable table = GenDetailTable();
-            
+
             for (int i = 0; i < r.BillDetails.Length; i++)
             {
                 DataRow row = table.NewRow();
@@ -65,44 +56,30 @@ namespace THOK.PDA.Dal
                 row["operatePieceQuantity"] = r.BillDetails[i].PieceQuantity;
                 row["operateBarQuantity"] = r.BillDetails[i].BarQuantity;
                 row["StatusName"] = r.BillDetails[i].StatusName;
-                
+
                 table.Rows.Add(row);
             }
             return table;
         }
 
-        /// <summary>
-        /// 取消作业
-        /// </summary>
-        /// <param name="billDetails"></param>
-        /// <param name="useTag"></param>
-        public void Cancel(BillDetail billDetail)
-        {
-            string parameter = @"Parameter={'Method':'cancel','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
-            string msg = util.GetDataFromServer(parameter);
-            //Result r = JsonConvert.DeserializeObject<Result>(msg);
-        }
-
-        /// <summary>
-        /// 申请作业
-        /// </summary>
-        /// <param name="billDetails"></param>
-        /// <param name="useTag"></param>
+        /// <summary>申请作业</summary>
         public void Apply(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'apply','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
             string msg = util.GetDataFromServer(parameter);
             //Result r = JsonConvert.DeserializeObject<Result>(msg);
         }
-
-
-        /// <summary>
-        /// 完成作业
-        /// </summary>
-        /// <returns></returns>
+        /// <summary>取消作业</summary>
+        public void Cancel(BillDetail billDetail)
+        {
+            string parameter = @"Parameter={'Method':'cancel','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
+            string msg = util.GetDataFromServer(parameter);
+            //Result r = JsonConvert.DeserializeObject<Result>(msg);
+        }
+        /// <summary>完成作业</summary>
         public void Execute(BillDetail billDetail)
         {
-            string parameter = @"Parameter={'Method':'execute','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail}) + "}";
+            string parameter = @"Parameter={'Method':'execute','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
             string msg = util.GetDataFromServer(parameter);
         }
 
@@ -125,7 +102,7 @@ namespace THOK.PDA.Dal
             table.Columns.Add("operatePieceQuantity");
             table.Columns.Add("operateBarQuantity");
             table.Columns.Add("StatusName");
-            
+
             return table;
         }
     }
