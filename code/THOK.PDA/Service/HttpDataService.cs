@@ -86,8 +86,8 @@ namespace THOK.PDA.Service
         private DataTable GenBill()
         {
             DataTable table = new DataTable();
-            table.TableName = "BILL";
-            table.Columns.Add("BILLNO");
+            table.TableName = "Bill";
+            table.Columns.Add("BillNo");
             return table;
         }
 
@@ -95,12 +95,12 @@ namespace THOK.PDA.Service
         {
             DataTable table = new DataTable();
             table.Columns.Add("DetailID");
-            table.Columns.Add("operateStorageName");
-            table.Columns.Add("targetStorageName");
-            table.Columns.Add("operateName");
-            table.Columns.Add("operateProductName");
-            table.Columns.Add("operatePieceQuantity");
-            table.Columns.Add("operateBarQuantity");
+            table.Columns.Add("OperateStorageName");
+            table.Columns.Add("TargetStorageName");
+            table.Columns.Add("OperateName");
+            table.Columns.Add("OperateProductName");
+            table.Columns.Add("OperatePieceQuantity");
+            table.Columns.Add("OperateBarQuantity");
             table.Columns.Add("StatusName");
 
             return table;
