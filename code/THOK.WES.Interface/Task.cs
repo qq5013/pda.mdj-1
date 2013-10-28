@@ -164,6 +164,7 @@ namespace THOK.WES.Interface
 
                     break;
                 #endregion
+
                 #region 细单
                 case "getBillDetail":
                     try
@@ -194,6 +195,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 申请
                 case "apply":
                     try
@@ -224,6 +226,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 取消
                 case "cancel":
                     try
@@ -254,6 +257,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 确认
                 case "execute":
                     try
@@ -284,6 +288,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region RFID
                 case "getRfidInfo":
                     try
@@ -314,6 +319,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 货架
                 case "getShelf":
                     try
@@ -344,6 +350,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 其他
                 case "compose":
                     try
@@ -374,6 +381,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 异型烟出库
                 case "getOutAbnormity":
                     try
@@ -403,7 +411,8 @@ namespace THOK.WES.Interface
                         }
                     }
                     break;
-                    #endregion
+                #endregion
+
                 default: break;
             }
         }
