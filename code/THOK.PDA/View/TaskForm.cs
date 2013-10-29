@@ -30,7 +30,15 @@ namespace THOK.PDA.View
         private void BaseTaskForm_Load(object sender, EventArgs e)
         {
             DataTable tempTable = null;
-            tempTable = httpDataService.SearchOutAbnormalTask();
+
+            if (billType == "abnormal")
+            {
+                tempTable = httpDataService.SearchOutAbnormalTask();
+            }
+            else if (billType == "small")
+            {
+                tempTable = httpDataService.SearchOutSmallTask();
+            }
             detailTable = tempTable;
 
             this.dgInfo.DataSource = tempTable;
@@ -38,19 +46,22 @@ namespace THOK.PDA.View
             {
                 this.btnNext.Enabled = false;
             }
-            DataGridTableStyle gridStyle = new DataGridTableStyle();
-            gridStyle.MappingName = tempTable.TableName;
-            dgInfo.TableStyles.Add(gridStyle);
-            GridColumnStylesCollection columnStyles = this.dgInfo.TableStyles[0].GridColumnStyles;
+            #region //
+            //DataGridTableStyle gridStyle = new DataGridTableStyle();
+            //gridStyle.MappingName = tempTable.TableName;
 
-            columnStyles["ID"].HeaderText = "任务号";
-            columnStyles["StorageName"].HeaderText = "货位";
-            columnStyles["ProductName"].HeaderText = "烟名";
-            columnStyles["OrderType"].HeaderText = "类型";
-            columnStyles["Status"].HeaderText = "状态";
+            //dgInfo.TableStyles.Add(gridStyle);
+            //GridColumnStylesCollection columnStyles = this.dgInfo.TableStyles[0].GridColumnStyles;
 
-            //如不显示，宽度设为0
-            columnStyles["DetailID"].Width = 50;
+            //columnStyles["ID"].HeaderText = "任务号";
+            //columnStyles["StorageName"].HeaderText = "货位";
+            //columnStyles["ProductName"].HeaderText = "烟名";
+            //columnStyles["OrderType"].HeaderText = "类型";
+            //columnStyles["Status"].HeaderText = "状态";
+
+            ////如不显示，宽度设为0
+            //columnStyles["DetailID"].Width = 50; 
+            #endregion
 
             if (tempTable.Rows.Count != 0)
             {
@@ -86,24 +97,17 @@ namespace THOK.PDA.View
             WaitCursor.Set();
             try
             {
+                Detail detail = new Detail();
                 if (SystemCache.ConnetionType == "NetWork")
                 {
-                    BillDetail billDetail = new BillDetail();
-                    billDetail.BillType = billType;
-                    billDetail.DetailID = int.Parse(this.dgInfo[this.dgInfo.CurrentCell.RowNumber, 0].ToString());
-                    billDetail.PieceQuantity = decimal.Parse(this.dgInfo[this.dgInfo.CurrentCell.RowNumber, 5].ToString());
-                    billDetail.BarQuantity = decimal.Parse(this.dgInfo[this.dgInfo.CurrentCell.RowNumber, 6].ToString());
-                    billDetail.Operator = Dns.GetHostName();
-                    httpDataService.ApplyTask(billDetail);
-                    //修改内存中对应作业的状态为：已申请
-                    DataRow[] rows = detailTable.Select(string.Format("TaskID = {0}", this.dgInfo[this.dgInfo.CurrentCell.RowNumber, 0].ToString()));
-                    rows[0]["Status"] = "已申请";
+                    
+                    detail.TaskID = 1;
+                    detail.OrderID = "";
+                    detail.CellCode = "2-2-2";
+                    detail.PieceQuantity = 100;
+                    detail.BarQuantity = 12;
                 }
-                else
-                {
-                    MessageBox.Show("0x001:btnNext_Click");
-                }
-                DetailForm billDetailForm = new DetailForm();
+                DetailForm billDetailForm = new DetailForm(detail);
                 billDetailForm.Index = this.index;
                 billDetailForm.Show();
                 this.Close();

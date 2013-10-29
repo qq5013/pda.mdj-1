@@ -38,19 +38,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
-            this.lbStorageID = new System.Windows.Forms.Label();
-            this.lbTobacconame = new System.Windows.Forms.Label();
-            this.lbPiece = new System.Windows.Forms.Label();
-            this.lbItem = new System.Windows.Forms.Label();
-            this.lbState = new System.Windows.Forms.Label();
-            this.lbType = new System.Windows.Forms.Label();
+            this.lbCellCode = new System.Windows.Forms.Label();
+            this.lbProductName = new System.Windows.Forms.Label();
+            this.lbPieceQuantity = new System.Windows.Forms.Label();
+            this.lbBarQuantity = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.Label();
+            this.lbOrderType = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lbBillid = new System.Windows.Forms.Label();
+            this.lbOrderID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
@@ -131,49 +127,49 @@
             this.lbID.Location = new System.Drawing.Point(67, 41);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(167, 20);
-            this.lbID.Text = "label8";
+            this.lbID.Text = "ID";
             // 
-            // lbStorageID
+            // lbCellCode
             // 
-            this.lbStorageID.Location = new System.Drawing.Point(67, 98);
-            this.lbStorageID.Name = "lbStorageID";
-            this.lbStorageID.Size = new System.Drawing.Size(167, 20);
-            this.lbStorageID.Text = "label8";
+            this.lbCellCode.Location = new System.Drawing.Point(67, 98);
+            this.lbCellCode.Name = "lbCellCode";
+            this.lbCellCode.Size = new System.Drawing.Size(167, 20);
+            this.lbCellCode.Text = "CellCode";
             // 
-            // lbTobacconame
+            // lbProductName
             // 
-            this.lbTobacconame.Location = new System.Drawing.Point(67, 128);
-            this.lbTobacconame.Name = "lbTobacconame";
-            this.lbTobacconame.Size = new System.Drawing.Size(167, 20);
-            this.lbTobacconame.Text = "label8";
+            this.lbProductName.Location = new System.Drawing.Point(67, 128);
+            this.lbProductName.Name = "lbProductName";
+            this.lbProductName.Size = new System.Drawing.Size(167, 20);
+            this.lbProductName.Text = "ProductName";
             // 
-            // lbPiece
+            // lbPieceQuantity
             // 
-            this.lbPiece.Location = new System.Drawing.Point(68, 157);
-            this.lbPiece.Name = "lbPiece";
-            this.lbPiece.Size = new System.Drawing.Size(125, 20);
-            this.lbPiece.Text = "label8";
+            this.lbPieceQuantity.Location = new System.Drawing.Point(68, 157);
+            this.lbPieceQuantity.Name = "lbPieceQuantity";
+            this.lbPieceQuantity.Size = new System.Drawing.Size(125, 20);
+            this.lbPieceQuantity.Text = "PieceQuantity";
             // 
-            // lbItem
+            // lbBarQuantity
             // 
-            this.lbItem.Location = new System.Drawing.Point(67, 186);
-            this.lbItem.Name = "lbItem";
-            this.lbItem.Size = new System.Drawing.Size(126, 20);
-            this.lbItem.Text = "label8";
+            this.lbBarQuantity.Location = new System.Drawing.Point(67, 186);
+            this.lbBarQuantity.Name = "lbBarQuantity";
+            this.lbBarQuantity.Size = new System.Drawing.Size(126, 20);
+            this.lbBarQuantity.Text = "BarQuantity";
             // 
-            // lbState
+            // lbStatus
             // 
-            this.lbState.Location = new System.Drawing.Point(67, 216);
-            this.lbState.Name = "lbState";
-            this.lbState.Size = new System.Drawing.Size(167, 20);
-            this.lbState.Text = "label8";
+            this.lbStatus.Location = new System.Drawing.Point(67, 216);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(167, 20);
+            this.lbStatus.Text = "Status";
             // 
-            // lbType
+            // lbOrderType
             // 
-            this.lbType.Location = new System.Drawing.Point(67, 247);
-            this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(167, 20);
-            this.lbType.Text = "label8";
+            this.lbOrderType.Location = new System.Drawing.Point(67, 247);
+            this.lbOrderType.Name = "lbOrderType";
+            this.lbOrderType.Size = new System.Drawing.Size(167, 20);
+            this.lbOrderType.Text = "OrderType";
             // 
             // label9
             // 
@@ -182,12 +178,12 @@
             this.label9.Size = new System.Drawing.Size(56, 20);
             this.label9.Text = "类　型:";
             // 
-            // lbBillid
+            // lbOrderID
             // 
-            this.lbBillid.Location = new System.Drawing.Point(67, 69);
-            this.lbBillid.Name = "lbBillid";
-            this.lbBillid.Size = new System.Drawing.Size(167, 20);
-            this.lbBillid.Text = "lbBillid";
+            this.lbOrderID.Location = new System.Drawing.Point(67, 69);
+            this.lbOrderID.Name = "lbOrderID";
+            this.lbOrderID.Size = new System.Drawing.Size(167, 20);
+            this.lbOrderID.Text = "OrderID";
             // 
             // label10
             // 
@@ -196,62 +192,22 @@
             this.label10.Size = new System.Drawing.Size(56, 20);
             this.label10.Text = "主单据:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(223, 157);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 20);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "+";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(199, 157);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(20, 20);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "-";
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(223, 186);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(20, 20);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "+";
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(199, 186);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 20);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "-";
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // BillDetailForm
+            // DetailForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(243, 320);
             this.ControlBox = false;
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbBillid);
+            this.Controls.Add(this.lbOrderID);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.lbType);
+            this.Controls.Add(this.lbOrderType);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lbState);
-            this.Controls.Add(this.lbItem);
-            this.Controls.Add(this.lbPiece);
-            this.Controls.Add(this.lbTobacconame);
-            this.Controls.Add(this.lbStorageID);
+            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.lbBarQuantity);
+            this.Controls.Add(this.lbPieceQuantity);
+            this.Controls.Add(this.lbProductName);
+            this.Controls.Add(this.lbCellCode);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -264,7 +220,7 @@
             this.Controls.Add(this.btnBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Name = "BillDetailForm";
+            this.Name = "DetailForm";
             this.Text = "Form1";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.BillDetailForm_Load);
@@ -283,20 +239,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lbID;
-        private System.Windows.Forms.Label lbStorageID;
-        private System.Windows.Forms.Label lbTobacconame;
-        private System.Windows.Forms.Label lbPiece;
-        private System.Windows.Forms.Label lbItem;
-        private System.Windows.Forms.Label lbState;
-        private System.Windows.Forms.Label lbType;
+        private System.Windows.Forms.Label lbCellCode;
+        private System.Windows.Forms.Label lbProductName;
+        private System.Windows.Forms.Label lbPieceQuantity;
+        private System.Windows.Forms.Label lbBarQuantity;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.Label lbOrderType;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lbBillid;
+        private System.Windows.Forms.Label lbOrderID;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lbID;
 
     }
 }
