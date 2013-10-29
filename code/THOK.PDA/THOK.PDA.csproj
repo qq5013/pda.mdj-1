@@ -17,6 +17,8 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FormFactorID>
     </FormFactorID>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,14 +46,18 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LitJson, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\THOK.DLL\LitJson.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="mscorlib, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>@Debug\mscorlib.dll</HintPath>
+      <HintPath>..\THOK.DLL\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json.Compact, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>@Debug\Newtonsoft.Json.Compact.dll</HintPath>
+      <HintPath>..\THOK.DLL\Newtonsoft.Json.Compact.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -66,16 +72,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dal\BillDal.cs" />
-    <Compile Include="Dal\HttpDataDal.cs" />
-    <Compile Include="Dal\XMLBillDal.cs" />
-    <Compile Include="Dao\BillDao.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Dao\DBHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Dao\XMLBillDao.cs" />
+    <Compile Include="Service\HttpDataService.cs" />
+    <Compile Include="Service\XMLBillService.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
     <Compile Include="Util\HttpUtil.cs" />
     <Compile Include="Util\SystemCache.cs" />
@@ -101,16 +99,12 @@
       <DependentUpon>ParameterForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BillMasterForm.resx">
-      <DependentUpon>BillMasterForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BaseTaskForm.resx">
-      <DependentUpon>BaseTaskForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\BillDetailForm.resx">
-      <DependentUpon>BillDetailForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\DetailForm.resx">
+      <DependentUpon>DetailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -124,27 +118,21 @@
     <Compile Include="View\ParameterForm.Designer.cs">
       <DependentUpon>ParameterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BillMasterForm.cs">
+    <Compile Include="View\TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BillMasterForm.Designer.cs">
-      <DependentUpon>BillMasterForm.cs</DependentUpon>
+    <Compile Include="View\TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BaseTaskForm.cs">
+    <Compile Include="View\DetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BaseTaskForm.Designer.cs">
-      <DependentUpon>BaseTaskForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\BillDetailForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\BillDetailForm.Designer.cs">
-      <DependentUpon>BillDetailForm.cs</DependentUpon>
+    <Compile Include="View\DetailForm.Designer.cs">
+      <DependentUpon>DetailForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.xml">
+    <Content Include="config\config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="image\TH.png" />

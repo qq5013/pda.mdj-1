@@ -42,17 +42,17 @@ namespace THOK.WES.Interface.Model
             get { return productName; }
             set { productName = value; }
         }
-        private decimal quantityTiao = 0;
-        public decimal QuantityTiao
+        private decimal barQuantity = 0;
+        public decimal BarQuantity
         {
-            get { return quantityTiao; }
-            set { quantityTiao = value; }
+            get { return barQuantity; }
+            set { barQuantity = value; }
         }
-        private decimal quantityJian =0;
-        public decimal QuantityJian
+        private decimal pieceQuantity =0;
+        public decimal PieceQuantity
         {
-            get { return quantityJian; }
-            set { quantityJian = value; }
+            get { return pieceQuantity; }
+            set { pieceQuantity = value; }
         }
         private string wareCode = string.Empty;
         public string WareCode

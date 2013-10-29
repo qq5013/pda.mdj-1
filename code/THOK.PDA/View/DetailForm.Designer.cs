@@ -1,6 +1,6 @@
 ﻿namespace THOK.PDA.View
 {
-    partial class BillDetailForm
+    partial class DetailForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -62,7 +62,6 @@
             this.btnBack.Size = new System.Drawing.Size(77, 32);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "上一步";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnComplete
             // 
@@ -269,7 +268,6 @@
             this.Text = "Form1";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.BillDetailForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BillDetailForm_KeyDown);
             this.ResumeLayout(false);
 
         }

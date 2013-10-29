@@ -1,6 +1,6 @@
 ﻿namespace THOK.PDA.View
 {
-    partial class BaseTaskForm
+    partial class TaskForm
     {
         /// <summary>
         /// 必需的设计器变量。

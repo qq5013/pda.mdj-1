@@ -4,29 +4,26 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using System.Data;
-using System.Reflection;
 using THOK.PDA.Util;
-using System.Windows.Forms;
 
-namespace THOK.PDA.Dao
+namespace THOK.PDA.Service
 {
-    public class XMLBillDao
+    public class XMLBillService
     {
-        private XmlDocument doc = new XmlDocument();
-        private string upLoadFile =@"\DiskOnChip\upLoadFile.xml";
-        private string ImportFile = @"\DiskOnChip\ExportBill.xml";
+        XmlDocument doc = new XmlDocument();
+        string uploadFile = @"config\uploadFile.xml";
+        string importFile = @"config\exportBill.xml";
 
-        public XMLBillDao()
-        {           
-          
+        public XMLBillService()
+        {
+
         }
-
         public void SaveBill(string billId, string detailId)
         {
             XmlElement root = null;
-            if (File.Exists(upLoadFile))
+            if (File.Exists(uploadFile))
             {
-                doc.Load(upLoadFile);
+                doc.Load(uploadFile);
                 root = doc.DocumentElement;
             }
             else
@@ -35,27 +32,24 @@ namespace THOK.PDA.Dao
                 root = doc.CreateElement("Bill");
                 doc.AppendChild(root);
             }
-
             XmlElement node = doc.CreateElement("billInfo");
             node.SetAttribute("masteId", billId);
             node.SetAttribute("detailId", detailId);
             root.AppendChild(node);
-            doc.Save(upLoadFile);
+            doc.Save(uploadFile);
         }
-
         public void ReadBill()
         {
-            if (!File.Exists(ImportFile))
+            if (!File.Exists(importFile))
             {
                 SystemCache.DetailTable = null;
                 SystemCache.MasterTable = null;
                 return;
             }
-
             DataTable detailTable = null;
             DataTable masterTable = null;
 
-            doc.Load(ImportFile);
+            doc.Load(importFile);
             XmlElement root = doc.DocumentElement;
 
             if (root.ChildNodes.Count == 0)
@@ -64,10 +58,9 @@ namespace THOK.PDA.Dao
                 SystemCache.MasterTable = null;
                 return;
             }
-
             foreach (XmlElement node in root.ChildNodes)
             {
-                //为datatable创建表结构
+                //为DataTable创建表结构
                 if (masterTable == null)
                 {
                     masterTable = new DataTable();
@@ -87,13 +80,11 @@ namespace THOK.PDA.Dao
                         }
                     }
                 }
-
-                //为datatable添加数据
-                //添加主单据数据
+                //为DataTable添加数据 添加主单据数据
                 DataRow masterRow = masterTable.NewRow();
                 foreach (XmlAttribute masterAttribute in node.Attributes)
                 {
-                    masterRow[masterAttribute.Name] = masterAttribute.Value;                    
+                    masterRow[masterAttribute.Name] = masterAttribute.Value;
                 }
                 masterTable.Rows.Add(masterRow);
                 //添加明细单据数据
@@ -110,18 +101,17 @@ namespace THOK.PDA.Dao
             SystemCache.MasterTable = masterTable;
             SystemCache.DetailTable = detailTable;
         }
-
-        public void UpdateBill(string billId, string detailId,string piece,string item)
+        public void UpdateBill(string billId, string detailId, string piece, string item)
         {
-            doc.Load(ImportFile);
-            XmlNode node = doc.SelectNodes(@"/Bill/billInfo/detailInfo[@MASTER='"+billId+"'][@DETAILID='"+detailId+"']").Item(0);
-            node.Attributes["CONFIRMSTATE"].Value = "3";
-            
-            node.Attributes["STATENAME"].Value = "已执行";
-            node.Attributes["OPERATEPIECE"].Value = piece;
-            node.Attributes["OPERATEITEM"].Value = item;
-            doc.Save(ImportFile);
-            SystemCache.DetailTable.Select("MASTER='" + billId + "' AND DETAILID='" + detailId + "'")[0]["CONFIRMSTATE"] = "3";
+            doc.Load(importFile);
+            XmlNode node = doc.SelectNodes(@"/Bill/billInfo/detailInfo[@Master='" + billId + "'][@DetailID='" + detailId + "']").Item(0);
+            node.Attributes["ConfirmState"].Value = "3";
+
+            node.Attributes["StateName"].Value = "已执行";
+            node.Attributes["OperatePiece"].Value = piece;
+            node.Attributes["OperateItem"].Value = item;
+            doc.Save(importFile);
+            SystemCache.DetailTable.Select("Master='" + billId + "' AND DetailID='" + detailId + "'")[0]["ConfirmState"] = "3";
         }
     }
 }

@@ -13,39 +13,30 @@ namespace THOK.WES.Interface
         private string taskType = string.Empty;
 
         public delegate void GetBillMasterCompletedEventHandler(bool isSuccess,string msg,BillMaster[] billMasters);
-
         public event GetBillMasterCompletedEventHandler GetBillMasterCompleted;
 
         public delegate void GetBillDetailCompletedEventHandler(bool isSuccess,string msg,BillDetail[] billDetails);
-
         public event GetBillDetailCompletedEventHandler GetBillDetailCompleted;
 
         public delegate void ApplyCompletedEventHandler(bool isSuccess,string msg);
-
         public event ApplyCompletedEventHandler ApplyCompleted;
 
         public delegate void CancelCompletedEventHandler(bool isSuccess,string msg);
-
         public event CancelCompletedEventHandler CancelCompleted;
 
         public delegate void ExecuteCompletedEventHandler(bool isSuccess,string msg);
-
         public event ExecuteCompletedEventHandler ExecuteCompleted;
 
         public delegate void GetRfidInfoCompletedEventHandler(bool isSuccess, string msg, BillDetail[] billDetails);
-
         public event GetRfidInfoCompletedEventHandler GetRfidInfoCompleted;
 
         public delegate void BcComposeEventHandler(bool isSuccess, string msg);
-
         public event BcComposeEventHandler BcComposeCompleted;
 
         public delegate void GetShelfEventHandler(bool isSuccess, string msg, ShelfInfo[] shelfInfo);
-
         public event GetShelfEventHandler GetShelf;
 
         public delegate void GetOutAbnormityTask(OutAbnormityBill[] outAbnormityBill);
-
         public event GetOutAbnormityTask GetOutAbnormity;
 
         public Task(string url)
@@ -62,7 +53,7 @@ namespace THOK.WES.Interface
             parameter = JsonMapper.ToJson(parameter.Split(','));
             client.UploadStringAsync(url, "post", @"Parameter={'Method':'getMaster','BillTypes':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
-        }        
+        }
 
         //查询选择的所有主单里所有未执行细单；
         public void SearchBillDetail(BillMaster[] billMasters, string productCode, string operateType,string OperateArea, string @operator)
@@ -138,6 +129,24 @@ namespace THOK.WES.Interface
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
+        public void GetOutAbnormal()
+        {
+            taskType = "getOutAbnormal";
+            WebClient client = new WebClient();
+            client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getOutAbnormal'}");
+            client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
+        }
+
+        public void GetOutSmall()
+        {
+            taskType = "getOutSmall";
+            WebClient client = new WebClient();
+            client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getOutSmall'}");
+            client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
+        }
+
         void client_UploadStringCompleted(object sender, UploadStringCompletedEventArgs ex)
         {           
             switch (taskType)
@@ -173,6 +182,7 @@ namespace THOK.WES.Interface
 
                     break;
                 #endregion
+
                 #region 细单
                 case "getBillDetail":
                     try
@@ -203,6 +213,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 申请
                 case "apply":
                     try
@@ -233,6 +244,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 取消
                 case "cancel":
                     try
@@ -263,6 +275,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 确认
                 case "execute":
                     try
@@ -293,6 +306,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region RFID
                 case "getRfidInfo":
                     try
@@ -323,6 +337,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 货架
                 case "getShelf":
                     try
@@ -353,6 +368,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 其他
                 case "compose":
                     try
@@ -383,6 +399,7 @@ namespace THOK.WES.Interface
                     }
                     break;
                 #endregion
+
                 #region 异型烟出库
                 case "getOutAbnormity":
                     try
@@ -412,9 +429,9 @@ namespace THOK.WES.Interface
                         }
                     }
                     break;
-                    #endregion
-                default:
-                    break;
+                #endregion
+
+                default: break;
             }
         }
     }
