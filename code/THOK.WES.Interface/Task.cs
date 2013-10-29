@@ -365,14 +365,14 @@ namespace THOK.WES.Interface
                         {
                             if (GetOutAbnormity != null)
                             {
-                                GetOutAbnormity(r.OutAbnormityBill);
+                                GetOutAbnormity(r.Details);
                             }
                         }
                         else
                         {
                             if (GetOutAbnormity != null)
                             {
-                                GetOutAbnormity(r.OutAbnormityBill);
+                                GetOutAbnormity(r.Details);
                             }
                         }
                     }

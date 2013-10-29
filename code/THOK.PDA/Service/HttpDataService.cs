@@ -23,10 +23,10 @@ namespace THOK.PDA.Service
             DataTable table = GenBill();
             if (r.IsSuccess)
             {
-                for (int i = 0; i < r.OutAbnormityBill.Length; i++)
+                for (int i = 0; i < r.Details.Length; i++)
                 {
                     DataRow row = table.NewRow();
-                    row["TaskID"] = r.OutAbnormityBill[i].TaskID;
+                    row["TaskID"] = r.Details[i].TaskID;
                     table.Rows.Add(row);
                 }
                 return table;
@@ -46,10 +46,10 @@ namespace THOK.PDA.Service
             DataTable table = GenBill();
             if (r.IsSuccess)
             {
-                for (int i = 0; i < r.OutAbnormityBill.Length; i++)
+                for (int i = 0; i < r.Details.Length; i++)
                 {
                     DataRow row = table.NewRow();
-                    row["TaskID"] = r.OutAbnormityBill[i].TaskID;
+                    row["TaskID"] = r.Details[i].TaskID;
                     table.Rows.Add(row);
                 }
                 return table;
