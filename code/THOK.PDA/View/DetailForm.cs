@@ -16,6 +16,7 @@ namespace THOK.PDA.View
 {
     public partial class DetailForm : Form
     {
+        Detail detail = null;
         DataTable detailTable = null;
         HttpDataService httpDataService = new HttpDataService();
         DataRow detailRow = null;
@@ -26,36 +27,27 @@ namespace THOK.PDA.View
 
         public int Index;
 
-        public DetailForm()
+        public DetailForm(Detail detail)
         {
             InitializeComponent();
+            this.detail = detail;
         }
 
         private void BillDetailForm_Load(object sender, EventArgs e)
         {
-            switch (billType)
-            {
-                case "2": this.label2.Text = "出库单据明细"; break;
-            }
             if (SystemCache.ConnetionType == "NetWork")
             {
-                detailRow = detailTable.Select(string.Format("DetailID = {0}", detailID))[0];
-            }
+                this.lbID.Text = detail.TaskID.ToString();
+                this.lbOrderID.Text=detail.OrderID;
+                this.lbCellCode.Text = detail.CellCode;
+                this.lbProductName.Text = detail.ProductName;
+                this.lbPieceQuantity.Text = detail.PieceQuantity.ToString();
+                this.lbBarQuantity.Text = detail.BarQuantity.ToString();
+                this.lbStatus.Text = detail.Status;
+                this.lbOrderType.Text = detail.OrderType;
 
-            this.lbID.Text = detailRow["DetailID"].ToString();
-            this.lbStorageID.Text = detailRow["OperateStorageName"].ToString();
-            this.lbTobacconame.Text = detailRow["OperateProductName"].ToString();
-            this.lbPiece.Text = detailRow["OperatePieceQuantity"].ToString();
-            this.lbItem.Text = detailRow["OperateBarQuantity"].ToString();
-            this.lbState.Text = detailRow["StatusName"].ToString();
-            this.lbType.Text = detailRow["OperateName"].ToString();
-            this.lbBillid.Text = billID;
-
-            if (detailRow["TargetStorageName"].ToString() != "")
-            {
-                this.lbType.Text = this.lbType.Text + "->" + detailRow["TargetStorageName"].ToString();
+                WaitCursor.Restore();
             }
-            WaitCursor.Restore();
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
@@ -71,8 +63,8 @@ namespace THOK.PDA.View
                     billDetail.BillType = billType;
                     billDetail.DetailID = Convert.ToInt32(lbID.Text);
                     billDetail.Operator = Dns.GetHostName();
-                    billDetail.OperatePieceQuantity = Convert.ToDecimal(lbPiece.Text);
-                    billDetail.OperateBarQuantity = Convert.ToDecimal(lbItem.Text);
+                    billDetail.OperatePieceQuantity = Convert.ToDecimal(lbPieceQuantity.Text);
+                    billDetail.OperateBarQuantity = Convert.ToDecimal(lbBarQuantity.Text);
                     httpDataService.FinishTask(billDetail);
                 }
                 MessageBox.Show("确认成功!");
@@ -95,26 +87,26 @@ namespace THOK.PDA.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lbPiece.Text = Convert.ToString(Convert.ToInt32(lbPiece.Text) + 1);
+            lbPieceQuantity.Text = Convert.ToString(Convert.ToInt32(lbPieceQuantity.Text) + 1);
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            lbPiece.Text = Convert.ToString(Convert.ToInt32(lbPiece.Text) - 1);
-            if (Convert.ToInt32(lbPiece.Text) < 0)
+            lbPieceQuantity.Text = Convert.ToString(Convert.ToInt32(lbPieceQuantity.Text) - 1);
+            if (Convert.ToInt32(lbPieceQuantity.Text) < 0)
             {
-                lbPiece.Text = "0";
+                lbPieceQuantity.Text = "0";
             }
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            lbItem.Text = Convert.ToString(Convert.ToInt32(lbItem.Text) + 1);
+            lbBarQuantity.Text = Convert.ToString(Convert.ToInt32(lbBarQuantity.Text) + 1);
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            lbItem.Text = Convert.ToString(Convert.ToInt32(lbItem.Text) - 1);
-            if (Convert.ToInt32(lbItem.Text) < 0)
+            lbBarQuantity.Text = Convert.ToString(Convert.ToInt32(lbBarQuantity.Text) - 1);
+            if (Convert.ToInt32(lbBarQuantity.Text) < 0)
             {
-                lbItem.Text = "0";
+                lbBarQuantity.Text = "0";
             }
         }
     }

@@ -33,7 +33,7 @@ namespace THOK.WES.Interface
         public delegate void GetShelfEventHandler(bool isSuccess, string msg, ShelfInfo[] shelfInfo);
         public event GetShelfEventHandler GetShelf;
 
-        public delegate void GetOutAbnormityTask(OutAbnormityBill[] outAbnormityBill);
+        public delegate void GetOutAbnormityTask(Detail[] outAbnormityBill);
         public event GetOutAbnormityTask GetOutAbnormity;
 
         public Task(string url)
@@ -365,14 +365,14 @@ namespace THOK.WES.Interface
                         {
                             if (GetOutAbnormity != null)
                             {
-                                GetOutAbnormity(r.OutAbnormityBill);
+                                GetOutAbnormity(r.Details);
                             }
                         }
                         else
                         {
                             if (GetOutAbnormity != null)
                             {
-                                GetOutAbnormity(r.OutAbnormityBill);
+                                GetOutAbnormity(r.Details);
                             }
                         }
                     }

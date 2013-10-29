@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THOK.PDA", "THOK.PDA\THOK.PDA.csproj", "{5C54A558-7B4C-47F4-972B-B3E07D776EA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THOK.WES.Interface", "THOK.WES.Interface\THOK.WES.Interface.csproj", "{78B38305-22F2-4E8A-B076-5B3D39D14682}"

@@ -23,10 +23,10 @@ namespace THOK.PDA.Service
             DataTable table = GenBill();
             if (r.IsSuccess)
             {
-                for (int i = 0; i < r.OutAbnormityBill.Length; i++)
+                for (int i = 0; i < r.Details.Length; i++)
                 {
                     DataRow row = table.NewRow();
-                    row["TaskID"] = r.OutAbnormityBill[i].TaskID;
+                    row["TaskID"] = r.Details[i].TaskID;
                     table.Rows.Add(row);
                 }
                 return table;
@@ -46,10 +46,10 @@ namespace THOK.PDA.Service
             DataTable table = GenBill();
             if (r.IsSuccess)
             {
-                for (int i = 0; i < r.OutAbnormityBill.Length; i++)
+                for (int i = 0; i < r.Details.Length; i++)
                 {
                     DataRow row = table.NewRow();
-                    row["TaskID"] = r.OutAbnormityBill[i].TaskID;
+                    row["TaskID"] = r.Details[i].TaskID;
                     table.Rows.Add(row);
                 }
                 return table;
@@ -60,18 +60,6 @@ namespace THOK.PDA.Service
             }
         }
 
-        public void ApplyTask(BillDetail billDetail)
-        {
-            string parameter = @"Parameter={'Method':'apply','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
-            string msg = util.GetDataFromServer(parameter);
-            //Result r = JsonConvert.DeserializeObject<Result>(msg);
-        }
-        public void CancelTask(BillDetail billDetail)
-        {
-            string parameter = @"Parameter={'Method':'cancel','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
-            string msg = util.GetDataFromServer(parameter);
-            //Result r = JsonConvert.DeserializeObject<Result>(msg);
-        }
         public void FinishTask(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'execute','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
