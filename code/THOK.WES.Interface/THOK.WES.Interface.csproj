@@ -60,15 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CCommondMethod.cs" />
     <Compile Include="MessageTran.cs" />
     <Compile Include="Model\BillDetail.cs" />
-    <Compile Include="Model\BillMaster.cs" />
     <Compile Include="Model\OutAbnormityBill.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Model\ShelfInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadRfid.cs" />
     <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
