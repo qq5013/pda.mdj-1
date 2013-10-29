@@ -13,55 +13,6 @@ namespace THOK.PDA.Service
     {
         private HttpUtil util = new HttpUtil();
 
-        public DataTable SearchBillMaster(string billTypes)
-        {
-            string parameter = @"Parameter={'Method':'getMaster','BillTypes':" + JsonConvert.SerializeObject(billTypes.Split(',')) + "}";
-
-            string msg = util.GetDataFromServer(parameter);
-            Result r = JsonConvert.DeserializeObject<Result>(msg);
-
-            DataTable table = GenBill();
-            if (r.IsSuccess)
-            {
-                for (int i = 0; i < r.BillMasters.Length; i++)
-                {
-                    DataRow row = table.NewRow();
-                    row["BillNo"] = r.BillMasters[i].BillNo;
-                    table.Rows.Add(row);
-                }
-                return table;
-            }
-            else
-            {
-                return table;
-            }
-        }
-        public DataTable SearchBillDetail(BillMaster billMaster)
-        {
-            string parameter = @"Parameter={'Method':'getDetail','ProductCode': '" + "" + "','OperateType':'" + billMaster.BillType + "','OperateArea':'" + "1,2,3" + "','Operator':'" + Dns.GetHostName() + "','BillMasters':" + JsonConvert.SerializeObject(new BillMaster[] { billMaster }) + "}";
-            string msg = util.GetDataFromServer(parameter);
-            Result r = JsonConvert.DeserializeObject<Result>(msg);
-
-            DataTable table = GenDetailTable();
-
-            for (int i = 0; i < r.BillDetails.Length; i++)
-            {
-                DataRow row = table.NewRow();
-
-                row["DetailID"] = r.BillDetails[i].DetailID;
-                row["OperateStorageName"] = r.BillDetails[i].StorageName;
-                row["TargetStorageName"] = r.BillDetails[i].TargetStorageName;
-                row["OperateName"] = r.BillDetails[i].BillTypeName;
-                row["OperateProductName"] = r.BillDetails[i].ProductName;
-                row["OperatePieceQuantity"] = r.BillDetails[i].PieceQuantity;
-                row["OperateBarQuantity"] = r.BillDetails[i].BarQuantity;
-                row["StatusName"] = r.BillDetails[i].StatusName;
-
-                table.Rows.Add(row);
-            }
-            return table;
-        }
-
         public DataTable SearchOutAbnormalTask()
         {
             string parameter = @"Parameter={'Method':'getOutAbnormity'}";

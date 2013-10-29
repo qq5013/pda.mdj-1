@@ -12,9 +12,6 @@ namespace THOK.WES.Interface
 
         private string taskType = string.Empty;
 
-        public delegate void GetBillMasterCompletedEventHandler(bool isSuccess,string msg,BillMaster[] billMasters);
-        public event GetBillMasterCompletedEventHandler GetBillMasterCompleted;
-
         public delegate void GetBillDetailCompletedEventHandler(bool isSuccess,string msg,BillDetail[] billDetails);
         public event GetBillDetailCompletedEventHandler GetBillDetailCompleted;
 
@@ -53,18 +50,6 @@ namespace THOK.WES.Interface
             parameter = JsonMapper.ToJson(parameter.Split(','));
             client.UploadStringAsync(url, "post", @"Parameter={'Method':'getMaster','BillTypes':" + parameter + "}");
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
-        }
-
-        //查询选择的所有主单里所有未执行细单；
-        public void SearchBillDetail(BillMaster[] billMasters, string productCode, string operateType,string OperateArea, string @operator)
-        {
-            taskType = "getBillDetail";
-            WebClient client = new WebClient();
-            client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
-            string parameter = JsonMapper.ToJson(billMasters);
-            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getDetail','ProductCode': '" + productCode + "','OperateType':'" + operateType + "','OperateArea':'" + OperateArea + "','Operator':'" + @operator + "','BillMasters':" + parameter + "}");
-            client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
-
         }
 
         //请求所有选择的细单；
@@ -151,37 +136,7 @@ namespace THOK.WES.Interface
         {           
             switch (taskType)
             {
-                #region 主单
-                case "getBillMaster":
-                    try
-                    {
-                        string result = ex.Result;
-                        Result r = JsonMapper.ToObject<Result>(result);
-                        if (r.IsSuccess)
-                        {
-                            if (GetBillMasterCompleted != null)
-                            {
-                                GetBillMasterCompleted(true, r.Message, r.BillMasters);
-                            }
-                        }
-                        else
-                        {
-                            if (GetBillMasterCompleted != null)
-                            {
-                                GetBillMasterCompleted(false, r.Message, null);
-                            }
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        if (GetBillMasterCompleted != null)
-                        {
-                            GetBillMasterCompleted(false, e.Message, null);
-                        }
-                    }
-
-                    break;
-                #endregion
+                
 
                 #region 细单
                 case "getBillDetail":
