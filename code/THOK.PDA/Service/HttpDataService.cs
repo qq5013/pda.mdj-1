@@ -62,6 +62,53 @@ namespace THOK.PDA.Service
             return table;
         }
 
+        public DataTable SearchOutAbnormalTask()
+        {
+            string parameter = @"Parameter={'Method':'getOutAbnormity'}";
+
+            string msg = util.GetDataFromServer(parameter);
+            Result r = JsonConvert.DeserializeObject<Result>(msg);
+
+            DataTable table = GenBill();
+            if (r.IsSuccess)
+            {
+                for (int i = 0; i < r.OutAbnormityBill.Length; i++)
+                {
+                    DataRow row = table.NewRow();
+                    row["TaskID"] = r.OutAbnormityBill[i].TaskID;
+                    table.Rows.Add(row);
+                }
+                return table;
+            }
+            else
+            {
+                return table;
+            }
+        }
+        public DataTable SearchOutSmallTask()
+        {
+            string parameter = @"Parameter={'Method':'getOutSmall'}";
+
+            string msg = util.GetDataFromServer(parameter);
+            Result r = JsonConvert.DeserializeObject<Result>(msg);
+
+            DataTable table = GenBill();
+            if (r.IsSuccess)
+            {
+                for (int i = 0; i < r.OutAbnormityBill.Length; i++)
+                {
+                    DataRow row = table.NewRow();
+                    row["TaskID"] = r.OutAbnormityBill[i].TaskID;
+                    table.Rows.Add(row);
+                }
+                return table;
+            }
+            else
+            {
+                return table;
+            }
+        }
+
         public void ApplyTask(BillDetail billDetail)
         {
             string parameter = @"Parameter={'Method':'apply','UseTag':'" + "0" + "','BillDetails':" + JsonConvert.SerializeObject(new BillDetail[] { billDetail }) + "}";
@@ -83,23 +130,19 @@ namespace THOK.PDA.Service
         private DataTable GenBill()
         {
             DataTable table = new DataTable();
-            table.TableName = "Bill";
-            table.Columns.Add("BillNo");
+            table.TableName = "AbnormalTable";
+            table.Columns.Add("ID");
             return table;
         }
 
         private DataTable GenDetailTable()
         {
             DataTable table = new DataTable();
-            table.Columns.Add("DetailID");
-            table.Columns.Add("OperateStorageName");
-            table.Columns.Add("TargetStorageName");
-            table.Columns.Add("OperateName");
-            table.Columns.Add("OperateProductName");
-            table.Columns.Add("OperatePieceQuantity");
-            table.Columns.Add("OperateBarQuantity");
-            table.Columns.Add("StatusName");
-
+            table.Columns.Add("ID");
+            table.Columns.Add("StorageName");
+            table.Columns.Add("ProductName");
+            table.Columns.Add("PieceQuantity");
+            table.Columns.Add("Status");
             return table;
         }
     }

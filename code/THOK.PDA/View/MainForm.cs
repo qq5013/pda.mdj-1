@@ -23,19 +23,19 @@ namespace THOK.PDA.View
 
         private void btnAbnormalOut_Click(object sender, EventArgs e)
         {
-            string billType = "2";
+            string billType = "abnormal";
             FormShow(billType);
         }
         private void btnSmallOut_Click(object sender, EventArgs e)
         {
-            string billType = "3";
+            string billType = "small";
             FormShow(billType);
         }
         private void FormShow(string billType)
         {
             WaitCursor.Set();
-            BillMasterForm bmFrom = new BillMasterForm(billType);
-            bmFrom.Show();
+            TaskForm btFrom = new TaskForm(billType);
+            btFrom.Show();
             this.Visible = false;
         }
 

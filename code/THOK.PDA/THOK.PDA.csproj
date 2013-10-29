@@ -72,7 +72,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service\BillService.cs" />
     <Compile Include="Service\HttpDataService.cs" />
     <Compile Include="Service\XMLBillService.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
@@ -100,16 +99,12 @@
       <DependentUpon>ParameterForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BillMasterForm.resx">
-      <DependentUpon>BillMasterForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BaseTaskForm.resx">
-      <DependentUpon>BaseTaskForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\BillDetailForm.resx">
-      <DependentUpon>BillDetailForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\DetailForm.resx">
+      <DependentUpon>DetailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -123,23 +118,17 @@
     <Compile Include="View\ParameterForm.Designer.cs">
       <DependentUpon>ParameterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BillMasterForm.cs">
+    <Compile Include="View\TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BillMasterForm.Designer.cs">
-      <DependentUpon>BillMasterForm.cs</DependentUpon>
+    <Compile Include="View\TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BaseTaskForm.cs">
+    <Compile Include="View\DetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BaseTaskForm.Designer.cs">
-      <DependentUpon>BaseTaskForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\BillDetailForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\BillDetailForm.Designer.cs">
-      <DependentUpon>BillDetailForm.cs</DependentUpon>
+    <Compile Include="View\DetailForm.Designer.cs">
+      <DependentUpon>DetailForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

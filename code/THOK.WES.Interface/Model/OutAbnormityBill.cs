@@ -13,6 +13,13 @@ namespace THOK.WES.Interface.Model
             set { taskID = value; }
         }
 
+        private string orderID;
+        public string OrderID
+        {
+            get { return orderID; }
+            set { orderID = value; }
+        }
+
         private string positionName = string.Empty;
         public string PositionName
         {

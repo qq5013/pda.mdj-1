@@ -38,7 +38,6 @@ namespace THOK.WES.Interface.Model
                         return "";
                 }
             }
-
             set
             {
                 billType = value;

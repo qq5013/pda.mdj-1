@@ -129,6 +129,24 @@ namespace THOK.WES.Interface
             client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
         }
 
+        public void GetOutAbnormal()
+        {
+            taskType = "getOutAbnormal";
+            WebClient client = new WebClient();
+            client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getOutAbnormal'}");
+            client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
+        }
+
+        public void GetOutSmall()
+        {
+            taskType = "getOutSmall";
+            WebClient client = new WebClient();
+            client.Headers["Content-Type"] = @"application/x-www-form-urlencoded; charset=UTF-8";
+            client.UploadStringAsync(url, "post", @"Parameter={'Method':'getOutSmall'}");
+            client.UploadStringCompleted += new UploadStringCompletedEventHandler(client_UploadStringCompleted);
+        }
+
         void client_UploadStringCompleted(object sender, UploadStringCompletedEventArgs ex)
         {           
             switch (taskType)
